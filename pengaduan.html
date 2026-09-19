@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -1301,9 +1300,6 @@
                         NAVBAR
 ===================================================== -->
 
-<!-- =====================================================
-                        NAVBAR
-===================================================== -->
 <nav class="navbar">
 
     <!-- LOGO -->
@@ -1313,9 +1309,10 @@
     </div>
 
     <!-- MENU -->
-    <div class="menu">
+    <!-- DIPERBAIKI: ditambahkan id="navMenu" -->
+    <div class="menu" id="navMenu">
 
-        <a href="index.html" class="active">
+        <a href="index.html">
             <i class="fa-solid fa-house"></i>
             <span>Beranda</span>
         </a>
@@ -1340,7 +1337,8 @@
             <span>Fasilitas</span>
         </a>
 
-        <a href="pengaduan.html">
+        <!-- ACTIVE DIPINDAHKAN KE PENGADUAN -->
+        <a href="pengaduan.html" class="active">
             <i class="fa-solid fa-comment-dots"></i>
             <span>Pengaduan</span>
         </a>
@@ -1353,11 +1351,14 @@
     </div>
 
     <!-- MENU MOBILE -->
+    <!-- DIPERBAIKI: onclick untuk membuka menu -->
     <div
         class="menu-btn"
         role="button"
         tabindex="0"
         aria-label="Buka menu"
+        onclick="toggleMenu()"
+        onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleMenu()"
     >
         <i class="fa-solid fa-bars"></i>
     </div>
@@ -2887,8 +2888,8 @@ function escapeHTML(value) {
 
 }
 
+
 </script>
 
 </body>
 </html>
-
