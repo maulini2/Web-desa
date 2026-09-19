@@ -1,4 +1,3 @@
-```javascript
 // ================= MENU MOBILE =================
 
 const menuBtn = document.querySelector(".menu-btn");
@@ -86,4 +85,4 @@ document.querySelectorAll(".copyright")
         " Desa Serunai. Semua Hak Dilindungi.";
 
 });
-```
+
