@@ -33,6 +33,10 @@
 <!-- =====================================================
                         NAVBAR
 ===================================================== -->
+<!-- =====================================================
+                        NAVBAR
+===================================================== -->
+
 <nav class="navbar">
 
     <!-- LOGO -->
@@ -42,7 +46,7 @@
     </div>
 
     <!-- MENU -->
-    <div class="menu">
+    <div class="menu" id="navMenu">
 
         <!-- BERANDA -->
         <a href="index.html">
@@ -69,7 +73,7 @@
         </a>
 
         <!-- FASILITAS -->
-        <a href="fasilitas.html">
+        <a href="fasilitas.html" class="active">
             <i class="fa-solid fa-school"></i>
             <span>Fasilitas</span>
         </a>
@@ -89,12 +93,11 @@
     </div>
 
     <!-- MENU MOBILE -->
-    <div class="menu-btn">
+    <div class="menu-btn" onclick="toggleMenu()">
         <i class="fa-solid fa-bars"></i>
     </div>
 
 </nav>
-
 
 
 <!-- =====================================================

@@ -13,6 +13,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 
@@ -30,7 +31,7 @@
     </div>
 
     <!-- MENU -->
-    <div class="menu">
+    <div class="menu" id="navMenu">
 
         <!-- BERANDA -->
         <a href="index.html">
@@ -45,7 +46,7 @@
         </a>
 
         <!-- GALERI -->
-        <a href="galeri.html">
+        <a href="galeri.html" class="active">
             <i class="fa-solid fa-images"></i>
             <span>Galeri</span>
         </a>
@@ -77,7 +78,7 @@
     </div>
 
     <!-- MENU MOBILE -->
-    <div class="menu-btn">
+    <div class="menu-btn" onclick="toggleMenu()">
         <i class="fa-solid fa-bars"></i>
     </div>
 

@@ -19,27 +19,27 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
-    <style>
+   <style>
   :root {
-    --primary: #588157;
-    --primary-dark: #3a5a40;
-    --secondary: #a3b18a;
-    --accent: #dad7cd;
+    --primary: #168bd0;
+    --primary-dark: #075985;
+    --secondary: #7dd3fc;
+    --accent: #e0f4ff;
 
-    --bg: #f3f1eb;
-    --soft: #faf9f5;
+    --bg: #f3fbff;
+    --soft: #f8fcff;
     --card: #ffffff;
 
-    --text: #26362b;
-    --muted: #748074;
-    --navy: #344e41;
+    --text: #17324d;
+    --muted: #6b8498;
+    --navy: #075985;
 
-    --border: rgba(52, 78, 65, 0.11);
+    --border: rgba(7, 89, 133, 0.11);
 
-    --icon-bg: #edf2e9;
+    --icon-bg: #e0f4ff;
 
-    --shadow: 0 16px 45px rgba(52, 78, 65, 0.1);
-    --shadow-hover: 0 20px 55px rgba(52, 78, 65, 0.15);
+    --shadow: 0 16px 45px rgba(0, 100, 180, 0.10);
+    --shadow-hover: 0 20px 55px rgba(0, 100, 180, 0.16);
   }
 
   * {
@@ -57,7 +57,7 @@
     background:
       radial-gradient(
         circle at top left,
-        rgba(163, 177, 138, 0.12),
+        rgba(125, 211, 252, 0.16),
         transparent 30%
       ),
       var(--bg);
@@ -65,19 +65,23 @@
     min-height: 100vh;
   }
 
+  /* =========================
+     DARK MODE
+  ========================= */
+
   body.dark {
-    --bg: #0d1712;
-    --soft: #132019;
-    --card: #18271e;
+    --bg: #071923;
+    --soft: #0b2230;
+    --card: #102d3d;
 
-    --text: #eaf3eb;
-    --muted: #a7b6aa;
+    --text: #e8f7ff;
+    --muted: #9db5c4;
 
-    --navy: #eaf3eb;
+    --navy: #e8f7ff;
 
-    --border: rgba(163, 177, 138, 0.14);
+    --border: rgba(125, 211, 252, 0.14);
 
-    --icon-bg: #203127;
+    --icon-bg: #12394d;
 
     --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
   }
@@ -96,14 +100,14 @@
 
     z-index: 1000;
 
-    background: rgba(52, 78, 65, 0.96);
+    background: rgba(7, 89, 133, 0.96);
 
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-    box-shadow: 0 8px 30px rgba(52, 78, 65, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 100, 180, 0.18);
   }
 
   .nav-container {
@@ -136,7 +140,7 @@
   }
 
   .logo span {
-    color: #a3b18a;
+    color: #7dd3fc;
   }
 
   .nav-actions {
@@ -275,8 +279,8 @@
     background:
       linear-gradient(
         135deg,
-        rgba(88, 129, 87, 0.08),
-        rgba(163, 177, 138, 0.04)
+        rgba(22, 139, 208, 0.08),
+        rgba(125, 211, 252, 0.04)
       );
   }
 
@@ -325,21 +329,21 @@
   }
 
   .status-baru {
-    color: #3f6f54;
-    background: #e9f3e9;
-    border-color: #d7e8d7;
+    color: #075985;
+    background: #e0f4ff;
+    border-color: #c2e7fa;
   }
 
   .status-diproses {
-    color: #946c16;
-    background: #faf1d7;
-    border-color: #efe1b9;
+    color: #1675a8;
+    background: #e8f7ff;
+    border-color: #c9eafa;
   }
 
   .status-selesai {
-    color: #28734d;
-    background: #e3f2e8;
-    border-color: #cee6d6;
+    color: #177245;
+    background: #e3f7ed;
+    border-color: #ccebd9;
   }
 
   .status-ditolak {
@@ -349,20 +353,20 @@
   }
 
   body.dark .status-baru {
-    color: #b9d7bc;
-    background: rgba(88, 129, 87, 0.2);
-    border-color: rgba(163, 177, 138, 0.2);
+    color: #8ed8ff;
+    background: rgba(22, 139, 208, 0.20);
+    border-color: rgba(125, 211, 252, 0.20);
   }
 
   body.dark .status-diproses {
-    color: #e4c777;
-    background: rgba(148, 108, 22, 0.18);
-    border-color: rgba(228, 199, 119, 0.15);
+    color: #8bd4f7;
+    background: rgba(125, 211, 252, 0.15);
+    border-color: rgba(125, 211, 252, 0.15);
   }
 
   body.dark .status-selesai {
     color: #9bd1ad;
-    background: rgba(40, 115, 77, 0.2);
+    background: rgba(40, 115, 77, 0.20);
     border-color: rgba(155, 209, 173, 0.15);
   }
 
@@ -404,9 +408,9 @@
   .info-item:hover {
     transform: translateY(-2px);
 
-    border-color: rgba(88, 129, 87, 0.25);
+    border-color: rgba(22, 139, 208, 0.25);
 
-    box-shadow: 0 8px 25px rgba(52, 78, 65, 0.06);
+    box-shadow: 0 8px 25px rgba(0, 100, 180, 0.07);
   }
 
   .info-label {
@@ -553,19 +557,19 @@
     background:
       linear-gradient(
         135deg,
-        rgba(88, 129, 87, 0.09),
-        rgba(163, 177, 138, 0.07)
+        rgba(22, 139, 208, 0.09),
+        rgba(125, 211, 252, 0.07)
       );
 
-    border: 1px solid rgba(88, 129, 87, 0.16);
+    border: 1px solid rgba(22, 139, 208, 0.16);
   }
 
   body.dark .admin-box {
     background:
       linear-gradient(
         135deg,
-        rgba(88, 129, 87, 0.14),
-        rgba(163, 177, 138, 0.05)
+        rgba(22, 139, 208, 0.14),
+        rgba(125, 211, 252, 0.05)
       );
   }
 
@@ -651,7 +655,7 @@
   .form-group textarea:focus {
     border-color: var(--primary);
 
-    box-shadow: 0 0 0 4px rgba(88, 129, 87, 0.1);
+    box-shadow: 0 0 0 4px rgba(22, 139, 208, 0.10);
   }
 
   .form-group textarea::placeholder {
@@ -720,13 +724,13 @@
       var(--primary)
     );
 
-    box-shadow: 0 8px 22px rgba(58, 90, 64, 0.2);
+    box-shadow: 0 8px 22px rgba(7, 89, 133, 0.20);
   }
 
   .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
 
-    box-shadow: 0 12px 28px rgba(58, 90, 64, 0.27);
+    box-shadow: 0 12px 28px rgba(7, 89, 133, 0.27);
   }
 
   .btn-secondary {
@@ -761,7 +765,7 @@
     width: 38px;
     height: 38px;
 
-    border: 3px solid rgba(88, 129, 87, 0.16);
+    border: 3px solid rgba(22, 139, 208, 0.16);
 
     border-top-color: var(--primary);
 
@@ -869,7 +873,7 @@
   }
 
   .toast.success {
-    background: #3a6b4a;
+    background: #167a9c;
   }
 
   .toast.error {
@@ -1030,6 +1034,7 @@
     }
   }
 </style>
+   </style>
   </head>
 
   <body>
