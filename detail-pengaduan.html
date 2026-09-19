@@ -1,0 +1,1776 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Detail Pengaduan — Semparuk Sutera</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+  :root {
+    --primary: #588157;
+    --primary-dark: #3a5a40;
+    --secondary: #a3b18a;
+    --accent: #dad7cd;
+
+    --bg: #f3f1eb;
+    --soft: #faf9f5;
+    --card: #ffffff;
+
+    --text: #26362b;
+    --muted: #748074;
+    --navy: #344e41;
+
+    --border: rgba(52, 78, 65, 0.11);
+
+    --icon-bg: #edf2e9;
+
+    --shadow: 0 16px 45px rgba(52, 78, 65, 0.1);
+    --shadow-hover: 0 20px 55px rgba(52, 78, 65, 0.15);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(163, 177, 138, 0.12),
+        transparent 30%
+      ),
+      var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  body.dark {
+    --bg: #0d1712;
+    --soft: #132019;
+    --card: #18271e;
+
+    --text: #eaf3eb;
+    --muted: #a7b6aa;
+
+    --navy: #eaf3eb;
+
+    --border: rgba(163, 177, 138, 0.14);
+
+    --icon-bg: #203127;
+
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  }
+
+  /* =========================
+     NAVBAR
+  ========================= */
+
+  .navbar {
+    height: 76px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    background: rgba(52, 78, 65, 0.96);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 8px 30px rgba(52, 78, 65, 0.15);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    height: 100%;
+
+    margin: auto;
+
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    transition: 0.25s;
+  }
+
+  .logo:hover {
+    opacity: 0.9;
+  }
+
+  .logo span {
+    color: #a3b18a;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  /* =========================
+     PAGE
+  ========================= */
+
+  .page {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 125px 25px 60px;
+  }
+
+  /* =========================
+     BREADCRUMB
+  ========================= */
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 22px;
+
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--primary-dark);
+  }
+
+  .breadcrumb i {
+    font-size: 9px;
+    opacity: 0.7;
+  }
+
+  /* =========================
+     HEADER
+  ========================= */
+
+  .page-header {
+    margin-bottom: 30px;
+  }
+
+  .page-header h1 {
+    font-size: 32px;
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.8px;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  /* =========================
+     CARD
+  ========================= */
+
+  .card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    transition: 0.3s;
+  }
+
+  .card-header {
+    padding: 25px 28px;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(88, 129, 87, 0.08),
+        rgba(163, 177, 138, 0.04)
+      );
+  }
+
+  .card-header h2 {
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+  }
+
+  .card-body {
+    padding: 30px;
+  }
+
+  /* =========================
+     STATUS
+  ========================= */
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 8px 13px;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-transform: capitalize;
+
+    border: 1px solid transparent;
+  }
+
+  .status::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+  }
+
+  .status-baru {
+    color: #3f6f54;
+    background: #e9f3e9;
+    border-color: #d7e8d7;
+  }
+
+  .status-diproses {
+    color: #946c16;
+    background: #faf1d7;
+    border-color: #efe1b9;
+  }
+
+  .status-selesai {
+    color: #28734d;
+    background: #e3f2e8;
+    border-color: #cee6d6;
+  }
+
+  .status-ditolak {
+    color: #b63c4b;
+    background: #fbe6e9;
+    border-color: #f0cfd4;
+  }
+
+  body.dark .status-baru {
+    color: #b9d7bc;
+    background: rgba(88, 129, 87, 0.2);
+    border-color: rgba(163, 177, 138, 0.2);
+  }
+
+  body.dark .status-diproses {
+    color: #e4c777;
+    background: rgba(148, 108, 22, 0.18);
+    border-color: rgba(228, 199, 119, 0.15);
+  }
+
+  body.dark .status-selesai {
+    color: #9bd1ad;
+    background: rgba(40, 115, 77, 0.2);
+    border-color: rgba(155, 209, 173, 0.15);
+  }
+
+  body.dark .status-ditolak {
+    color: #f0a5af;
+    background: rgba(182, 60, 75, 0.18);
+    border-color: rgba(240, 165, 175, 0.15);
+  }
+
+  /* =========================
+     INFO GRID
+  ========================= */
+
+  .info-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 32px;
+  }
+
+  .info-item {
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: var(--soft);
+
+    border: 1px solid var(--border);
+
+    transition:
+      transform 0.25s,
+      border-color 0.25s,
+      box-shadow 0.25s;
+  }
+
+  .info-item:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(88, 129, 87, 0.25);
+
+    box-shadow: 0 8px 25px rgba(52, 78, 65, 0.06);
+  }
+
+  .info-label {
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    color: var(--muted);
+
+    margin-bottom: 8px;
+
+    font-weight: 800;
+  }
+
+  .info-value {
+    font-size: 14px;
+
+    font-weight: 650;
+
+    word-break: break-word;
+
+    line-height: 1.5;
+  }
+
+  .info-value a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    transition: 0.2s;
+  }
+
+  .info-value a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+
+  /* =========================
+     CONTENT
+  ========================= */
+
+  .content-section {
+    margin-top: 28px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 13px;
+  }
+
+  .section-title i {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--icon-bg);
+
+    color: var(--primary);
+
+    font-size: 12px;
+  }
+
+  .complaint-title {
+    font-size: 21px;
+
+    font-weight: 800;
+
+    line-height: 1.5;
+
+    margin-bottom: 12px;
+
+    letter-spacing: -0.3px;
+  }
+
+  .complaint-content {
+    background: var(--soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 21px;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+  }
+
+  .location {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    padding: 17px;
+
+    background: var(--soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  .location i {
+    color: var(--primary);
+
+    margin-top: 3px;
+
+    font-size: 14px;
+  }
+
+  /* =========================
+     ADMIN FORM
+  ========================= */
+
+  .admin-box {
+    margin-top: 34px;
+
+    padding: 25px;
+
+    border-radius: 19px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(88, 129, 87, 0.09),
+        rgba(163, 177, 138, 0.07)
+      );
+
+    border: 1px solid rgba(88, 129, 87, 0.16);
+  }
+
+  body.dark .admin-box {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(88, 129, 87, 0.14),
+        rgba(163, 177, 138, 0.05)
+      );
+  }
+
+  .admin-box h3 {
+    font-size: 17px;
+
+    margin-bottom: 6px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .admin-box h3 i {
+    color: var(--primary);
+  }
+
+  .admin-box > p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 23px;
+
+    line-height: 1.6;
+  }
+
+  .form-group {
+    margin-bottom: 19px;
+  }
+
+  .form-group label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    margin-bottom: 8px;
+  }
+
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--text);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    transition:
+      border-color 0.25s,
+      box-shadow 0.25s,
+      background 0.25s;
+  }
+
+  .form-group select {
+    height: 49px;
+
+    padding: 0 14px;
+
+    cursor: pointer;
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+
+    padding: 14px;
+
+    resize: vertical;
+
+    line-height: 1.7;
+  }
+
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(88, 129, 87, 0.1);
+  }
+
+  .form-group textarea::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+  }
+
+  /* =========================
+     BUTTON
+  ========================= */
+
+  .form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 24px;
+  }
+
+  .btn {
+    border: 0;
+
+    padding: 12px 19px;
+
+    min-height: 44px;
+
+    border-radius: 11px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+      transform 0.25s,
+      box-shadow 0.25s,
+      background 0.25s,
+      opacity 0.25s;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+  }
+
+  .btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  .btn-primary {
+    color: white;
+
+    background: linear-gradient(
+      135deg,
+      var(--primary-dark),
+      var(--primary)
+    );
+
+    box-shadow: 0 8px 22px rgba(58, 90, 64, 0.2);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 28px rgba(58, 90, 64, 0.27);
+  }
+
+  .btn-secondary {
+    background: var(--soft);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    background: var(--icon-bg);
+
+    transform: translateY(-2px);
+  }
+
+  /* =========================
+     LOADING
+  ========================= */
+
+  .loading {
+    padding: 75px 20px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 14px;
+  }
+
+  .spinner {
+    width: 38px;
+    height: 38px;
+
+    border: 3px solid rgba(88, 129, 87, 0.16);
+
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+
+    margin: 0 auto 16px;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* =========================
+     ERROR
+  ========================= */
+
+  .error-box {
+    padding: 55px 25px;
+
+    text-align: center;
+  }
+
+  .error-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 19px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fbe6e9;
+
+    color: #b63c4b;
+
+    font-size: 25px;
+  }
+
+  .error-box h2 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+  }
+
+  .error-box p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    max-width: 500px;
+
+    margin: 0 auto 22px;
+  }
+
+  /* =========================
+     TOAST
+  ========================= */
+
+  .toast {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 3000;
+
+    max-width: 380px;
+
+    padding: 14px 17px;
+
+    border-radius: 13px;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(20px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.3s;
+  }
+
+  .toast.show {
+    transform: translateY(0);
+
+    opacity: 1;
+  }
+
+  .toast.success {
+    background: #3a6b4a;
+  }
+
+  .toast.error {
+    background: #b63c4b;
+  }
+
+  /* =========================
+     RESPONSIVE
+  ========================= */
+
+  @media (max-width: 950px) {
+    .menu-btn {
+      display: flex;
+    }
+
+    .page {
+      max-width: 900px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .navbar {
+      height: 70px;
+    }
+
+    .nav-container {
+      padding: 0 16px;
+    }
+
+    .logo {
+      font-size: 18px;
+    }
+
+    .nav-btn {
+      width: 38px;
+      height: 38px;
+
+      border-radius: 10px;
+    }
+
+    .page {
+      padding: 105px 16px 40px;
+    }
+
+    .breadcrumb {
+      margin-bottom: 18px;
+
+      font-size: 12px;
+    }
+
+    .page-header {
+      margin-bottom: 23px;
+    }
+
+    .page-header h1 {
+      font-size: 26px;
+
+      letter-spacing: -0.5px;
+    }
+
+    .page-header p {
+      font-size: 13px;
+    }
+
+    .card {
+      border-radius: 18px;
+    }
+
+    .card-header {
+      padding: 20px;
+
+      align-items: flex-start;
+
+      flex-direction: column;
+
+      gap: 13px;
+    }
+
+    .card-header h2 {
+      font-size: 17px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+
+      gap: 12px;
+
+      margin-bottom: 27px;
+    }
+
+    .info-item {
+      padding: 16px;
+    }
+
+    .content-section {
+      margin-top: 25px;
+    }
+
+    .complaint-title {
+      font-size: 19px;
+    }
+
+    .complaint-content {
+      padding: 17px;
+
+      font-size: 13px;
+    }
+
+    .location {
+      padding: 15px;
+
+      font-size: 13px;
+    }
+
+    .admin-box {
+      padding: 19px;
+
+      border-radius: 16px;
+    }
+
+    .form-actions {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .toast {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .page {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card-header {
+      padding: 17px;
+    }
+
+    .page-header h1 {
+      font-size: 24px;
+    }
+  }
+</style>
+  </head>
+
+  <body>
+    <!-- =========================
+     NAVBAR
+========================= -->
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo"> Semparuk <span>Sutera</span> </a>
+
+    
+        <div class="nav-actions">
+          <button class="nav-btn" id="darkModeBtn" title="Mode Gelap">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button class="nav-btn menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+     MAIN
+========================= -->
+
+    <main class="page">
+      <div class="breadcrumb">
+        <a href="admin.html"> Admin </a>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <span> Detail Pengaduan </span>
+      </div>
+
+      <div class="page-header">
+        <h1>Detail Pengaduan</h1>
+
+        <p>Lihat informasi lengkap dan kelola status pengaduan warga.</p>
+      </div>
+
+      <div id="app">
+        <div class="card">
+          <div class="loading">
+            <div class="spinner"></div>
+
+            Memuat data pengaduan...
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- TOAST -->
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      /* =====================================================
+   KONFIGURASI API
+===================================================== */
+
+      const API_URL =
+        "https://script.google.com/macros/s/AKfycbxgeGUoclpvZLsZ_RwT4dJawIZ3gr8XkiV6GflSNU_Hv2D9ID4mY-zDT0lPyElwz_0t/exec";
+
+      /* =====================================================
+   ELEMENT
+===================================================== */
+
+      const app = document.getElementById("app");
+
+      const toast = document.getElementById("toast");
+
+      /* =====================================================
+   DARK MODE
+===================================================== */
+
+      const darkModeBtn = document.getElementById("darkModeBtn");
+
+      if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark");
+
+        darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+
+      darkModeBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark");
+
+        const dark = document.body.classList.contains("dark");
+
+        localStorage.setItem("darkMode", dark);
+
+        darkModeBtn.innerHTML = dark
+          ? '<i class="fa-solid fa-sun"></i>'
+          : '<i class="fa-solid fa-moon"></i>';
+      });
+
+      /* =====================================================
+   MOBILE MENU
+===================================================== */
+
+      const menuBtn = document.getElementById("menuBtn");
+
+      const navMenu = document.getElementById("navMenu");
+
+      menuBtn.addEventListener("click", function () {
+        navMenu.classList.toggle("show");
+      });
+
+      /* =====================================================
+   TOAST
+===================================================== */
+
+      let toastTimer;
+
+      function showToast(message, type = "success") {
+        toast.textContent = message;
+
+        toast.className = "toast show " + type;
+
+        clearTimeout(toastTimer);
+
+        toastTimer = setTimeout(function () {
+          toast.className = "toast";
+        }, 3000);
+      }
+
+      /* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+      function escapeHTML(value) {
+        if (value === null || value === undefined) {
+          return "";
+        }
+
+        return String(value)
+          .replace(/&/g, "&amp;")
+
+          .replace(/</g, "&lt;")
+
+          .replace(/>/g, "&gt;")
+
+          .replace(/"/g, "&quot;")
+
+          .replace(/'/g, "&#039;");
+      }
+
+      /* =====================================================
+   GET ID DARI URL
+===================================================== */
+
+      const params = new URLSearchParams(window.location.search);
+
+      const complaintId = params.get("id");
+
+      /* =====================================================
+   VALIDASI ID
+===================================================== */
+
+      if (!complaintId) {
+        showError(
+          "ID pengaduan tidak ditemukan.",
+          "URL halaman tidak memiliki ID pengaduan.",
+        );
+      } else {
+        loadComplaint();
+      }
+
+      /* =====================================================
+   LOAD DETAIL
+===================================================== */
+
+      function loadComplaint() {
+        requestJSONP(
+          {
+            action: "detail",
+            id: complaintId,
+          },
+          function (response) {
+            try {
+              if (response && response.success && response.data) {
+                renderComplaint(response.data);
+              } else {
+                showError(
+                  "Pengaduan tidak ditemukan.",
+                  response?.message || "Data tidak tersedia.",
+                );
+              }
+            } catch (error) {
+              console.error(error);
+              showError(
+                "Terjadi kesalahan.",
+                "Data pengaduan tidak dapat diproses.",
+              );
+            }
+          },
+          function () {
+            showError(
+              "Google Apps Script sedang lambat.",
+              "Silakan muat ulang halaman beberapa saat lagi.",
+            );
+          },
+          3,
+        );
+      }
+
+      /* =====================================================
+   JSONP DENGAN TIMEOUT + RETRY
+===================================================== */
+
+      function requestJSONP(params, onSuccess, onError, maxRetries) {
+        maxRetries = maxRetries || 3;
+        let attempt = 0;
+
+        function run() {
+          attempt++;
+
+          const callbackName =
+            "detailJSONP_" +
+            Date.now() +
+            "_" +
+            Math.random().toString(36).substring(2, 8);
+
+          const script = document.createElement("script");
+          let finished = false;
+
+          function cleanup() {
+            clearTimeout(timeout);
+            if (script.parentNode) script.parentNode.removeChild(script);
+            delete window[callbackName];
+          }
+
+          function fail() {
+            if (finished) return;
+            finished = true;
+            cleanup();
+
+            if (attempt < maxRetries) {
+              setTimeout(run, 700 * attempt);
+            } else {
+              onError(new Error("Google Apps Script tidak merespons."));
+            }
+          }
+
+          const timeout = setTimeout(fail, 8000);
+
+          window[callbackName] = function (response) {
+            if (finished) return;
+            finished = true;
+            cleanup();
+            onSuccess(response);
+          };
+
+          const query = new URLSearchParams();
+          Object.keys(params).forEach(function (key) {
+            query.append(key, params[key]);
+          });
+          query.append("callback", callbackName);
+          query.append("_", Date.now());
+
+          script.src = API_URL + "?" + query.toString();
+          script.onerror = fail;
+          document.body.appendChild(script);
+        }
+
+        run();
+      }
+
+      /* =====================================================
+   RENDER DETAIL
+===================================================== */
+
+      function renderComplaint(data) {
+        const status = String(data.status || "baru").toLowerCase();
+
+        let statusClass = "status-baru";
+
+        if (status === "diproses") {
+          statusClass = "status-diproses";
+        }
+
+        if (status === "selesai") {
+          statusClass = "status-selesai";
+        }
+
+        if (status === "ditolak") {
+          statusClass = "status-ditolak";
+        }
+
+        const kontak = escapeHTML(data.kontak || "-");
+
+        app.innerHTML = `
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Pengaduan
+                        ${escapeHTML(data.kode || "-")}
+                    </h2>
+
+                </div>
+
+                <span
+                    class="status ${statusClass}">
+
+                    ${escapeHTML(status)}
+
+                </span>
+
+            </div>
+
+
+            <div class="card-body">
+
+
+                <!-- INFORMASI -->
+
+                <div class="info-grid">
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Kode Pengaduan
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(data.kode || "-")}
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Nama Warga
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(data.nama || "-")}
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Kontak
+                        </div>
+
+                        <div class="info-value">
+
+                            ${
+                              data.kontak
+                                ? `<a href="tel:${escapeHTML(data.kontak)}">
+                                    ${kontak}
+                                </a>`
+                                : "-"
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Kategori
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(data.kategori || "-")}
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Tanggal Pengaduan
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(data.tanggal || "-")}
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <div class="info-label">
+                            Terakhir Diperbarui
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(data.diperbarui || "-")}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOKASI -->
+
+                <div class="content-section">
+
+                    <div class="section-title">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Lokasi Kejadian
+
+                    </div>
+
+
+                    <div class="location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span>
+                            ${escapeHTML(data.lokasi || "Lokasi tidak dicantumkan.")}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JUDUL -->
+
+                <div class="content-section">
+
+                    <div class="section-title">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        Judul Pengaduan
+
+                    </div>
+
+
+                    <div class="complaint-title">
+
+                        ${escapeHTML(data.judul || "-")}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ISI -->
+
+                <div class="content-section">
+
+                    <div class="section-title">
+
+                        <i class="fa-solid fa-align-left"></i>
+
+                        Isi Pengaduan
+
+                    </div>
+
+
+                    <div class="complaint-content">
+
+                        ${escapeHTML(data.isi || "-")}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ADMIN -->
+
+                <div class="admin-box">
+
+                    <h3>
+                        <i class="fa-solid fa-user-shield"></i>
+                        Tindakan Admin
+                    </h3>
+
+                    <p>
+                        Perbarui status dan berikan tanggapan kepada warga.
+                    </p>
+
+
+                    <div class="form-group">
+
+                        <label for="status">
+                            Status Pengaduan
+                        </label>
+
+
+                        <select id="status">
+
+                            <option
+                                value="baru"
+                                ${status === "baru" ? "selected" : ""}>
+                                Baru
+                            </option>
+
+                            <option
+                                value="diproses"
+                                ${status === "diproses" ? "selected" : ""}>
+                                Diproses
+                            </option>
+
+                            <option
+                                value="selesai"
+                                ${status === "selesai" ? "selected" : ""}>
+                                Selesai
+                            </option>
+
+                            <option
+                                value="ditolak"
+                                ${status === "ditolak" ? "selected" : ""}>
+                                Ditolak
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="tanggapan">
+                            Tanggapan Admin
+                        </label>
+
+
+                        <textarea
+                            id="tanggapan"
+                            placeholder="Tulis tanggapan untuk warga..."
+                        >${escapeHTML(data.tanggapan || "")}</textarea>
+
+                    </div>
+
+
+
+                    <div class="form-actions">
+
+                        <button
+                            class="btn btn-secondary"
+                            onclick="window.location.href='admin.html'">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            Kembali
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-primary"
+                            id="saveBtn"
+                            onclick="updateComplaint()">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+
+                            Simpan Perubahan
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    `;
+      }
+
+      /* =====================================================
+   UPDATE PENGADUAN
+===================================================== */
+
+      function updateComplaint() {
+        const status = document.getElementById("status").value;
+        const tanggapan = document.getElementById("tanggapan").value;
+        const saveBtn = document.getElementById("saveBtn");
+
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Menyimpan...
+    `;
+
+        const formData = new URLSearchParams();
+        formData.append("action", "update");
+        formData.append("id", complaintId);
+        formData.append("status", status);
+        formData.append("tanggapan", tanggapan);
+
+        fetch(API_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formData.toString(),
+        })
+          .then(function () {
+            // Verifikasi perubahan melalui endpoint detail.
+            verifyUpdate(status, tanggapan, 0);
+          })
+          .catch(function (error) {
+            console.error(error);
+            finishUpdateError("Gagal mengirim perubahan. Silakan coba lagi.");
+          });
+      }
+
+      function verifyUpdate(expectedStatus, expectedResponse, attempt) {
+        requestJSONP(
+          {
+            action: "detail",
+            id: complaintId,
+          },
+          function (response) {
+            if (response && response.success && response.data) {
+              const currentStatus = String(
+                response.data.status || "",
+              ).toLowerCase();
+              const currentResponse = String(response.data.tanggapan || "");
+
+              if (
+                currentStatus === String(expectedStatus).toLowerCase() &&
+                currentResponse === String(expectedResponse)
+              ) {
+                showToast("Perubahan berhasil disimpan.", "success");
+
+                setTimeout(function () {
+                  window.location.href = "admin.html";
+                }, 900);
+                return;
+              }
+            }
+
+            if (attempt < 2) {
+              setTimeout(function () {
+                verifyUpdate(expectedStatus, expectedResponse, attempt + 1);
+              }, 1000);
+              return;
+            }
+
+            finishUpdateError(
+              "Perubahan belum dapat diverifikasi. Jangan klik Simpan berulang kali; periksa kembali beberapa detik lagi.",
+            );
+          },
+          function () {
+            if (attempt < 2) {
+              setTimeout(function () {
+                verifyUpdate(expectedStatus, expectedResponse, attempt + 1);
+              }, 1200);
+              return;
+            }
+
+            finishUpdateError(
+              "Server Google sedang lambat. Perubahan mungkin sudah tersimpan. Jangan klik Simpan berulang kali.",
+            );
+          },
+          3,
+        );
+      }
+
+      function finishUpdateError(message) {
+        const saveBtn = document.getElementById("saveBtn");
+
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = `
+        <i class="fa-solid fa-floppy-disk"></i>
+        Simpan Perubahan
+    `;
+
+        showToast(message, "error");
+      }
+
+      /* =====================================================
+   ERROR PAGE
+===================================================== */
+
+      function showError(title, message) {
+        app.innerHTML = `
+
+        <div class="card">
+
+            <div class="error-box">
+
+                <div class="error-icon">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                </div>
+
+
+                <h2>
+                    ${escapeHTML(title)}
+                </h2>
+
+
+                <p>
+                    ${escapeHTML(message)}
+                </p>
+
+
+                <button
+                    class="btn btn-primary"
+                    onclick="window.location.href='admin.html'">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Kembali ke Admin
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+      }
+    </script>
+  </body>
+</html>

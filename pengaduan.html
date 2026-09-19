@@ -1,0 +1,2896 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pengaduan Warga | Desa Serunai</title>
+
+    <!-- GOOGLE FONT -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =====================================================
+                           VARIABLES
+        ===================================================== */
+
+        :root {
+            --blue: #168bd0;
+            --dark-blue: #075985;
+            --light-blue: #e0f4ff;
+            --sky: #7dd3fc;
+            --white: #ffffff;
+            --text: #17324d;
+            --muted: #60788c;
+            --soft: #f3fbff;
+            --border: rgba(22,139,208,.12);
+
+            --shadow:
+                0 10px 35px rgba(0,80,150,.08);
+        }
+
+
+        /* =====================================================
+                           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--soft);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+                           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            width: 100%;
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(255,255,255,.94);
+
+            backdrop-filter: blur(15px);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 999;
+
+            box-shadow:
+                0 5px 25px rgba(0,100,180,.08);
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 23px;
+            font-weight: 600;
+
+            color: var(--dark-blue);
+        }
+
+        .logo i {
+            color: var(--blue);
+        }
+
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+
+
+        .menu a {
+            color: var(--text);
+
+            text-decoration: none;
+
+            font-weight: 500;
+            font-size: 14px;
+
+            position: relative;
+
+            transition: .3s;
+        }
+
+
+        .menu a:hover,
+        .menu a.active {
+            color: var(--blue);
+        }
+
+
+        .menu a::after {
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+            height: 3px;
+
+            background: var(--blue);
+
+            left: 50%;
+            bottom: -8px;
+
+            border-radius: 10px;
+
+            transition: .3s;
+        }
+
+
+        .menu a:hover::after,
+        .menu a.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+
+        .menu a i {
+            margin-right: 4px;
+        }
+
+
+        .menu-btn {
+            display: none;
+
+            font-size: 25px;
+
+            color: var(--blue);
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+                           PAGE HEADER
+        ===================================================== */
+
+        .page-header {
+
+            min-height: 360px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f8ff,
+                    #c5edff,
+                    #f4fcff
+                );
+        }
+
+
+        .page-header::before {
+
+            content: "";
+
+            width: 350px;
+            height: 350px;
+
+            position: absolute;
+
+            right: -120px;
+            top: -150px;
+
+            background: #8bdcff;
+
+            border-radius: 50%;
+
+            opacity: .25;
+
+            animation: float 6s ease-in-out infinite;
+        }
+
+
+        .page-header::after {
+
+            content: "☁️";
+
+            position: absolute;
+
+            left: 8%;
+            top: 70px;
+
+            font-size: 60px;
+
+            opacity: .45;
+
+            animation: cloudMove 15s linear infinite;
+        }
+
+
+        .page-header-content {
+
+            max-width: 750px;
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: fadeUp .8s ease;
+        }
+
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: white;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            color: var(--blue);
+
+            font-weight: 600;
+
+            font-size: 13px;
+
+            box-shadow:
+                0 8px 25px rgba(0,100,180,.1);
+
+            margin-bottom: 20px;
+        }
+
+
+        .page-header h1 {
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: clamp(45px, 7vw, 70px);
+
+            line-height: 1;
+
+            color: var(--dark-blue);
+
+            margin-bottom: 15px;
+        }
+
+
+        .page-header h1 span {
+            color: var(--blue);
+        }
+
+
+        .page-header p {
+
+            color: #46657b;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+                           CONTENT
+        ===================================================== */
+
+        .content-section {
+
+            padding: 90px 8%;
+        }
+
+
+        .form-wrapper {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr .8fr;
+
+            gap: 25px;
+
+            align-items: start;
+        }
+
+
+        /* =====================================================
+                           CARD
+        ===================================================== */
+
+        .card {
+
+            background: white;
+
+            padding: 35px 30px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 35px rgba(0,80,150,.08);
+
+            transition: .4s;
+
+            border: 1px solid rgba(22,139,208,.06);
+        }
+
+
+        .card:hover {
+
+            box-shadow:
+                0 18px 45px rgba(0,100,180,.12);
+        }
+
+
+        .card-title {
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 28px;
+
+            color: var(--dark-blue);
+
+            margin-bottom: 8px;
+        }
+
+
+        .card-title i {
+            color: var(--blue);
+        }
+
+
+        .card-description {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =====================================================
+                           FORM
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 16px;
+        }
+
+
+        label {
+
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+
+            color: var(--text);
+        }
+
+
+        label span {
+            color: #e74c3c;
+        }
+
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 14px 15px;
+
+            font-size: 13px;
+
+            outline: none;
+
+            background: var(--soft);
+
+            color: var(--text);
+
+            transition: .25s;
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color: var(--blue);
+
+            background: white;
+
+            box-shadow:
+                0 0 0 4px rgba(22,139,208,.08);
+        }
+
+
+        textarea {
+
+            min-height: 160px;
+
+            resize: vertical;
+        }
+
+
+        /* =====================================================
+                           SUBMIT BUTTON
+        ===================================================== */
+
+        .submit-btn {
+
+            width: 100%;
+
+            border: 0;
+
+            border-radius: 30px;
+
+            padding: 15px 20px;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            box-shadow:
+                0 10px 25px rgba(22,139,208,.25);
+        }
+
+
+        .submit-btn:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(22,139,208,.35);
+        }
+
+
+        .submit-btn:disabled {
+
+            opacity: .6;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =====================================================
+                           INFORMATION
+        ===================================================== */
+
+        .info-box {
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            background: var(--light-blue);
+
+            margin-bottom: 15px;
+
+            transition: .3s;
+        }
+
+
+        .info-box:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(0,100,180,.08);
+        }
+
+
+        .info-icon {
+
+            width: 50px;
+            height: 50px;
+
+            border-radius: 16px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            color: var(--blue);
+
+            margin-bottom: 12px;
+
+            font-size: 20px;
+        }
+
+
+        .info-box h3 {
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+
+            color: var(--dark-blue);
+        }
+
+
+        .info-box p {
+
+            font-size: 12px;
+
+            color: var(--muted);
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+                           ERROR
+        ===================================================== */
+
+        .error-message {
+
+            display: none;
+
+            margin-top: 12px;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+            font-size: 12px;
+        }
+
+
+        .error-message.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+                           STATUS SECTION
+        ===================================================== */
+
+        .status-section {
+
+            max-width: 1100px;
+
+            margin: 30px auto 0;
+        }
+
+
+        .status-form {
+
+            display: flex;
+
+            gap: 12px;
+        }
+
+
+        .status-form input {
+            flex: 1;
+        }
+
+
+        .check-btn {
+
+            border: 0;
+
+            border-radius: 30px;
+
+            padding: 0 25px;
+
+            background: var(--dark-blue);
+
+            color: white;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            white-space: nowrap;
+        }
+
+
+        .check-btn:hover {
+
+            background: var(--blue);
+
+            transform: translateY(-3px);
+        }
+
+
+        .check-btn:disabled {
+
+            opacity: .6;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =====================================================
+                           RESULT
+        ===================================================== */
+
+        .result-box {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border-radius: 20px;
+
+            background: var(--soft);
+
+            border: 1px solid var(--border);
+        }
+
+
+        .result-box.show {
+            display: block;
+
+            animation: fadeUp .4s ease;
+        }
+
+
+        .result-title {
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 22px;
+
+            color: var(--dark-blue);
+
+            margin-bottom: 12px;
+        }
+
+
+        .result-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            font-size: 13px;
+        }
+
+
+        .result-row:last-child {
+            border-bottom: 0;
+        }
+
+
+        .result-label {
+            color: var(--muted);
+        }
+
+
+        .status-badge {
+
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            text-transform: capitalize;
+        }
+
+
+        .status-baru {
+
+            background: #fff3cd;
+
+            color: #856404;
+        }
+
+
+        .status-diproses {
+
+            background: #dbeafe;
+
+            color: #1d4ed8;
+        }
+
+
+        .status-selesai {
+
+            background: #d1fae5;
+
+            color: #047857;
+        }
+
+
+        .status-ditolak {
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+        }
+
+
+        /* =====================================================
+                           SUCCESS MODAL
+        ===================================================== */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 2000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background: rgba(3,38,58,.55);
+
+            backdrop-filter: blur(5px);
+        }
+
+
+        .modal.show {
+            display: flex;
+        }
+
+
+        .modal-card {
+
+            width: min(450px, 100%);
+
+            background: white;
+
+            border-radius: 28px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.25);
+
+            animation: modalIn .35s ease;
+        }
+
+
+        .success-icon {
+
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            background: #d1fae5;
+
+            color: #059669;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+        }
+
+
+        .modal-card h2 {
+
+            font-family: "Fredoka", sans-serif;
+
+            color: var(--dark-blue);
+
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .modal-card p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        .kode-box {
+
+            margin: 20px 0;
+
+            padding: 16px;
+
+            border-radius: 15px;
+
+            background: var(--light-blue);
+
+            border: 1px dashed var(--blue);
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color: var(--dark-blue);
+
+            word-break: break-all;
+        }
+
+
+        .modal-buttons {
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .modal-buttons button {
+
+            flex: 1;
+
+            border: 0;
+
+            border-radius: 30px;
+
+            padding: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .copy-btn {
+
+            background: var(--blue);
+
+            color: white;
+        }
+
+
+        .copy-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(22,139,208,.25);
+        }
+
+
+        .close-btn {
+
+            background: var(--soft);
+
+            color: var(--text);
+        }
+
+
+        .close-btn:hover {
+
+            background: var(--light-blue);
+        }
+
+
+        /* =====================================================
+                           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            background: #063b5b;
+
+            color: white;
+        }
+
+
+        .footer-logo {
+
+            font-family: "Fredoka", sans-serif;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+
+        footer p {
+
+            opacity: .8;
+
+            margin: 8px;
+
+            font-size: 13px;
+        }
+
+
+        .social {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin: 20px 0;
+        }
+
+
+        .social a {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.1);
+
+            color: white;
+
+            transition: .3s;
+        }
+
+
+        .social a:hover {
+
+            background: var(--blue);
+
+            transform: translateY(-5px);
+        }
+
+
+        .copyright {
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+                           ANIMATIONS
+        ===================================================== */
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(30px);
+            }
+
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes cloudMove {
+
+            from {
+                transform: translateX(-80px);
+            }
+
+            to {
+                transform: translateX(80px);
+            }
+
+        }
+
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform: scale(.9) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+                           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 1000px) {
+
+            .menu {
+                gap: 18px;
+            }
+
+            .form-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 850px) {
+
+            .menu {
+
+                position: absolute;
+
+                top: 75px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: white;
+
+                display: none;
+
+                flex-direction: column;
+
+                padding: 25px;
+
+                text-align: center;
+
+                box-shadow:
+                    0 15px 30px rgba(0,80,150,.1);
+            }
+
+
+            .menu.show {
+                display: flex;
+            }
+
+
+            .menu-btn {
+                display: block;
+            }
+
+
+            .menu a {
+                padding: 8px;
+            }
+
+
+            .menu a::after {
+                bottom: 0;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+
+            .logo {
+                font-size: 20px;
+            }
+
+
+            .page-header {
+
+                min-height: 330px;
+
+                padding:
+                    60px 6%;
+            }
+
+
+            .page-header h1 {
+                font-size: 45px;
+            }
+
+
+            .content-section {
+                padding: 60px 6%;
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            .card {
+                padding: 25px 20px;
+            }
+
+
+            .status-form {
+                flex-direction: column;
+            }
+
+
+            .check-btn {
+                padding: 14px;
+            }
+
+
+            .result-row {
+
+                flex-direction: column;
+
+                gap: 4px;
+            }
+
+
+            .modal-buttons {
+                flex-direction: column;
+            }
+
+
+            .modal-card {
+                padding: 28px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                        NAVBAR
+===================================================== -->
+
+<!-- =====================================================
+                        NAVBAR
+===================================================== -->
+<nav class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <i class="fa-solid fa-leaf"></i>
+        <span>Desa Serunai</span>
+    </div>
+
+    <!-- ================= 7 MENU ================= -->
+    <div class="menu">
+
+        <!-- 1. BERANDA -->
+        <a href="index.html" class="active">
+            <i class="fa-solid fa-house"></i>
+            <span>Beranda</span>
+        </a>
+
+        <!-- 2. PROFIL -->
+        <a href="profil.html">
+            <i class="fa-solid fa-user"></i>
+            <span>Profil</span>
+        </a>
+
+        <!-- 3. GALERI -->
+        <a href="galeri.html">
+            <i class="fa-solid fa-images"></i>
+            <span>Galeri</span>
+        </a>
+
+        <!-- 4. KEGIATAN -->
+        <a href="kegiatan.html">
+            <i class="fa-solid fa-people-group"></i>
+            <span>Kegiatan</span>
+        </a>
+
+        <!-- 5. FASILITAS -->
+        <a href="fasilitas.html">
+            <i class="fa-solid fa-school"></i>
+            <span>Fasilitas</span>
+        </a>
+
+        <!-- 6. PENGADUAN -->
+        <a href="pengaduan.html">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span>Pengaduan</span>
+        </a>
+
+        <!-- 7. ADMIN -->
+        <a href="login.html">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Admin</span>
+        </a>
+
+    </div>
+
+    <!-- MENU MOBILE -->
+    <div class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+                    PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="page-header-content">
+
+        <div class="badge">
+
+            <i class="fa-solid fa-comments"></i>
+
+            Layanan Warga
+
+        </div>
+
+
+        <h1>
+
+            Sampaikan <span>Pengaduan</span>
+
+        </h1>
+
+
+        <p>
+
+            Sampaikan pengaduan atau laporan mengenai
+            kondisi di Dusun Dahlia II. Setiap laporan
+            akan diterima dan ditindaklanjuti oleh admin
+            Desa Serunai.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                        CONTENT
+===================================================== -->
+
+<section class="content-section">
+
+    <div class="form-wrapper">
+
+
+        <!-- =================================================
+                            FORM
+        ================================================== -->
+
+        <div class="card">
+
+            <h2 class="card-title">
+
+                <i class="fa-solid fa-file-pen"></i>
+
+                Formulir Pengaduan
+
+            </h2>
+
+
+            <p class="card-description">
+
+                Isi data berikut dengan lengkap dan benar
+                agar laporan dapat ditindaklanjuti.
+
+            </p>
+
+
+            <form id="pengaduanForm">
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Nama <span>*</span>
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            placeholder="Masukkan nama Anda"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email / No. WhatsApp
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="kontak"
+                            name="kontak"
+                            placeholder="Contoh: 08123456789"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Kategori Pengaduan <span>*</span>
+                    </label>
+
+
+                    <select
+                        id="kategori"
+                        name="kategori"
+                        required
+                    >
+
+                        <option value="">
+                            -- Pilih Kategori --
+                        </option>
+
+                        <option value="Infrastruktur">
+                            Infrastruktur
+                        </option>
+
+                        <option value="Kebersihan">
+                            Kebersihan
+                        </option>
+
+                        <option value="Keamanan">
+                            Keamanan
+                        </option>
+
+                        <option value="Pelayanan Desa">
+                            Pelayanan Desa
+                        </option>
+
+                        <option value="Lingkungan">
+                            Lingkungan
+                        </option>
+
+                        <option value="Fasilitas Umum">
+                            Fasilitas Umum
+                        </option>
+
+                        <option value="Lainnya">
+                            Lainnya
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Judul Pengaduan <span>*</span>
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="judul"
+                        name="judul"
+                        placeholder="Contoh: Jalan rusak di Dusun Dahlia II"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Isi Pengaduan <span>*</span>
+                    </label>
+
+
+                    <textarea
+                        id="isi"
+                        name="isi"
+                        placeholder="Jelaskan pengaduan Anda secara lengkap..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Lokasi Kejadian
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="lokasi"
+                        name="lokasi"
+                        placeholder="Contoh: Jalan utama Dusun Dahlia II"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    Kirim Pengaduan
+
+                </button>
+
+
+                <div
+                    class="error-message"
+                    id="errorMessage"
+                ></div>
+
+
+            </form>
+
+        </div>
+
+
+        <!-- =================================================
+                            INFO
+        ================================================== -->
+
+        <div>
+
+
+            <div class="card">
+
+                <h2 class="card-title">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Informasi
+
+                </h2>
+
+
+                <p class="card-description">
+
+                    Sebelum mengirim laporan, perhatikan
+                    beberapa hal berikut.
+
+                </p>
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Isi Laporan Dengan Jelas
+                    </h3>
+
+
+                    <p>
+
+                        Jelaskan masalah yang terjadi
+                        agar laporan lebih mudah dipahami
+                        dan ditindaklanjuti.
+
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-key"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Simpan Kode Pengaduan
+                    </h3>
+
+
+                    <p>
+
+                        Setelah mengirim laporan,
+                        Anda akan mendapatkan kode
+                        pengaduan untuk mengecek status.
+
+                    </p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Pantau Status
+                    </h3>
+
+
+                    <p>
+
+                        Status laporan dapat berubah
+                        menjadi baru, diproses, selesai,
+                        atau ditolak.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+                    CEK STATUS
+    ===================================================== -->
+
+    <div
+        class="card status-section"
+    >
+
+        <h2 class="card-title">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            Cek Status Pengaduan
+
+        </h2>
+
+
+        <p class="card-description">
+
+            Sudah mengirim pengaduan?
+            Masukkan kode pengaduan Anda untuk melihat
+            status dan tanggapan dari admin.
+
+        </p>
+
+
+        <form
+            class="status-form"
+            id="statusForm"
+        >
+
+            <input
+                type="text"
+                id="kodeCek"
+                placeholder="Contoh: PGD-20260918-A7K9M2"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="check-btn"
+                id="checkBtn"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Cek Status
+
+            </button>
+
+        </form>
+
+
+        <div
+            class="result-box"
+            id="resultBox"
+        >
+
+            <div class="result-title">
+
+                <i class="fa-solid fa-clipboard-check"></i>
+
+                Hasil Pengaduan
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Kode
+                </span>
+
+                <strong id="resultKode"></strong>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Kategori
+                </span>
+
+                <span id="resultKategori"></span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Judul
+                </span>
+
+                <span id="resultJudul"></span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Lokasi
+                </span>
+
+                <span id="resultLokasi"></span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Status
+                </span>
+
+                <span id="resultStatus"></span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Tanggapan Admin
+                </span>
+
+                <span id="resultTanggapan"></span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Tanggal
+                </span>
+
+                <span id="resultTanggal"></span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    SUCCESS MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="successModal"
+>
+
+    <div class="modal-card">
+
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <h2>
+            Pengaduan Berhasil!
+        </h2>
+
+
+        <p>
+
+            Pengaduan Anda berhasil dikirim.
+            Simpan kode berikut untuk mengecek
+            status laporan.
+
+        </p>
+
+
+        <div
+            class="kode-box"
+            id="kodeHasil"
+        >
+            -
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="copy-btn"
+                onclick="copyKode()"
+            >
+
+                <i class="fa-solid fa-copy"></i>
+
+                Salin Kode
+
+            </button>
+
+
+            <button
+                class="close-btn"
+                onclick="closeModal()"
+            >
+
+                Tutup
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+                        FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-logo">
+
+        🌿 Desa Serunai
+
+    </div>
+
+
+    <p>
+
+        Dusun Dahlia II • Kecamatan Salatiga •
+        Kabupaten Sambas • Kalimantan Barat
+
+    </p>
+
+
+    <p>
+
+        Layanan Pengaduan Warga Desa
+
+    </p>
+
+
+    <div class="social">
+
+        <a href="#">
+            <i class="fab fa-facebook"></i>
+        </a>
+
+        <a href="#">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 Desa Serunai.
+        Semua Hak Dilindungi.
+
+    </p>
+
+
+</footer>
+
+
+<!-- =====================================================
+                    JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+                    KONFIGURASI API
+===================================================== */
+
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbxgeGUoclpvZLsZ_RwT4dJawIZ3gr8XkiV6GflSNU_Hv2D9ID4mY-zDT0lPyElwz_0t/exec";
+
+
+/* =====================================================
+                    NAVBAR
+===================================================== */
+
+function toggleMenu() {
+
+    document
+        .getElementById("navMenu")
+        .classList
+        .toggle("show");
+
+}
+
+
+/* =====================================================
+                GENERATE KODE PENGADUAN
+===================================================== */
+
+function generateKode() {
+
+    const now = new Date();
+
+    const tanggal =
+        now.getFullYear() +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0");
+
+
+    const random =
+        Math.random()
+            .toString(36)
+            .substring(2, 8)
+            .toUpperCase();
+
+
+    return "PGD-" + tanggal + "-" + random;
+
+}
+
+
+/* =====================================================
+                    FORM PENGADUAN
+===================================================== */
+
+document
+    .getElementById("pengaduanForm")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const submitBtn =
+                document.getElementById("submitBtn");
+
+
+            const errorMessage =
+                document.getElementById("errorMessage");
+
+
+            errorMessage.classList.remove("show");
+
+
+            const nama =
+                document
+                    .getElementById("nama")
+                    .value
+                    .trim();
+
+
+            const kontak =
+                document
+                    .getElementById("kontak")
+                    .value
+                    .trim();
+
+
+            const kategori =
+                document
+                    .getElementById("kategori")
+                    .value;
+
+
+            const judul =
+                document
+                    .getElementById("judul")
+                    .value
+                    .trim();
+
+
+            const isi =
+                document
+                    .getElementById("isi")
+                    .value
+                    .trim();
+
+
+            const lokasi =
+                document
+                    .getElementById("lokasi")
+                    .value
+                    .trim();
+
+
+            const kode =
+                generateKode();
+
+
+            submitBtn.disabled = true;
+
+
+            submitBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "action",
+                "tambah"
+            );
+
+
+            formData.append(
+                "kode",
+                kode
+            );
+
+
+            formData.append(
+                "nama",
+                nama
+            );
+
+
+            formData.append(
+                "kontak",
+                kontak
+            );
+
+
+            formData.append(
+                "kategori",
+                kategori
+            );
+
+
+            formData.append(
+                "judul",
+                judul
+            );
+
+
+            formData.append(
+                "isi",
+                isi
+            );
+
+
+            formData.append(
+                "lokasi",
+                lokasi
+            );
+
+
+            fetch(API_URL, {
+
+                method: "POST",
+
+                body: formData,
+
+                mode: "no-cors"
+
+            })
+
+            .then(function() {
+
+                verifySubmittedComplaint(
+                    kode,
+                    0
+                );
+
+            })
+
+            .catch(function(error) {
+
+                console.error(error);
+
+                showSubmitError(
+                    "Tidak dapat mengirim pengaduan. Periksa koneksi internet lalu coba lagi."
+                );
+
+            });
+
+        }
+    );
+
+
+/* =====================================================
+                VERIFIKASI PENGADUAN
+===================================================== */
+
+function verifySubmittedComplaint(
+    kode,
+    attempt
+) {
+
+    requestJSONP(
+
+        {
+            action: "cek",
+            kode: kode
+        },
+
+
+        function(response) {
+
+            if (
+                response &&
+                response.success
+            ) {
+
+                document
+                    .getElementById("kodeHasil")
+                    .textContent = kode;
+
+
+                document
+                    .getElementById("successModal")
+                    .classList
+                    .add("show");
+
+
+                document
+                    .getElementById("pengaduanForm")
+                    .reset();
+
+
+                resetSubmitButton();
+
+                return;
+
+            }
+
+
+            if (attempt < 2) {
+
+                setTimeout(
+                    function() {
+
+                        verifySubmittedComplaint(
+                            kode,
+                            attempt + 1
+                        );
+
+                    },
+                    1000
+                );
+
+                return;
+
+            }
+
+
+            showSubmitError(
+
+                "Pengaduan belum dapat diverifikasi. Jangan kirim ulang dulu. Tunggu beberapa detik lalu cek status menggunakan kode: " +
+                kode
+
+            );
+
+        },
+
+
+        function() {
+
+            if (attempt < 2) {
+
+                setTimeout(
+                    function() {
+
+                        verifySubmittedComplaint(
+                            kode,
+                            attempt + 1
+                        );
+
+                    },
+                    1200
+                );
+
+                return;
+
+            }
+
+
+            showSubmitError(
+
+                "Server Google sedang lambat. Pengaduan mungkin sudah tersimpan. Jangan kirim ulang dulu; coba cek status dengan kode: " +
+                kode
+
+            );
+
+        },
+
+        3
+
+    );
+
+}
+
+
+/* =====================================================
+                RESET SUBMIT BUTTON
+===================================================== */
+
+function resetSubmitButton() {
+
+    const submitBtn =
+        document.getElementById("submitBtn");
+
+
+    submitBtn.disabled = false;
+
+
+    submitBtn.innerHTML =
+        '<i class="fa-solid fa-paper-plane"></i> Kirim Pengaduan';
+
+}
+
+
+/* =====================================================
+                    ERROR
+===================================================== */
+
+function showSubmitError(message) {
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+
+    errorMessage.textContent =
+        message;
+
+
+    errorMessage.classList.add("show");
+
+
+    resetSubmitButton();
+
+}
+
+
+/* =====================================================
+                    JSONP
+===================================================== */
+
+function requestJSONP(
+    params,
+    onSuccess,
+    onError,
+    maxRetries
+) {
+
+    maxRetries =
+        maxRetries || 3;
+
+
+    let attempt = 0;
+
+
+    function run() {
+
+        attempt++;
+
+
+        const callbackName =
+            "jsonp_" +
+            Date.now() +
+            "_" +
+            Math.random()
+                .toString(36)
+                .substring(2, 8);
+
+
+        const script =
+            document.createElement("script");
+
+
+        script.id =
+            callbackName;
+
+
+        let finished = false;
+
+
+        const cleanup =
+            function() {
+
+                clearTimeout(timeout);
+
+
+                if (
+                    script.parentNode
+                ) {
+
+                    script
+                        .parentNode
+                        .removeChild(script);
+
+                }
+
+
+                delete window[
+                    callbackName
+                ];
+
+            };
+
+
+        const fail =
+            function() {
+
+                if (finished)
+                    return;
+
+
+                finished = true;
+
+
+                cleanup();
+
+
+                if (
+                    attempt <
+                    maxRetries
+                ) {
+
+                    setTimeout(
+                        run,
+                        700 * attempt
+                    );
+
+                } else {
+
+                    onError(
+                        new Error(
+                            "Google Apps Script tidak merespons."
+                        )
+                    );
+
+                }
+
+            };
+
+
+        const timeout =
+            setTimeout(
+                fail,
+                8000
+            );
+
+
+        window[
+            callbackName
+        ] =
+            function(response) {
+
+                if (finished)
+                    return;
+
+
+                finished = true;
+
+
+                cleanup();
+
+
+                onSuccess(
+                    response
+                );
+
+            };
+
+
+        const query =
+            new URLSearchParams();
+
+
+        Object.keys(params)
+            .forEach(
+                function(key) {
+
+                    query.append(
+                        key,
+                        params[key]
+                    );
+
+                }
+            );
+
+
+        query.append(
+            "callback",
+            callbackName
+        );
+
+
+        query.append(
+            "_",
+            Date.now()
+        );
+
+
+        script.src =
+            API_URL +
+            "?" +
+            query.toString();
+
+
+        script.onerror =
+            fail;
+
+
+        document.body
+            .appendChild(script);
+
+    }
+
+
+    run();
+
+}
+
+
+/* =====================================================
+                    COPY KODE
+===================================================== */
+
+function copyKode() {
+
+    const kode =
+        document
+            .getElementById("kodeHasil")
+            .textContent;
+
+
+    if (
+        navigator.clipboard &&
+        window.isSecureContext
+    ) {
+
+        navigator.clipboard
+            .writeText(kode)
+            .then(
+                function() {
+
+                    showCopied();
+
+                }
+            );
+
+    } else {
+
+        const textarea =
+            document.createElement(
+                "textarea"
+            );
+
+
+        textarea.value =
+            kode;
+
+
+        document.body
+            .appendChild(
+                textarea
+            );
+
+
+        textarea.select();
+
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        textarea.remove();
+
+
+        showCopied();
+
+    }
+
+}
+
+
+/* =====================================================
+                    COPIED
+===================================================== */
+
+function showCopied() {
+
+    const button =
+        document.querySelector(
+            ".copy-btn"
+        );
+
+
+    button.innerHTML =
+        '<i class="fa-solid fa-check"></i> Tersalin!';
+
+
+    setTimeout(
+        function() {
+
+            button.innerHTML =
+                '<i class="fa-solid fa-copy"></i> Salin Kode';
+
+        },
+        2000
+    );
+
+}
+
+
+/* =====================================================
+                    CLOSE MODAL
+===================================================== */
+
+function closeModal() {
+
+    document
+        .getElementById(
+            "successModal"
+        )
+        .classList
+        .remove("show");
+
+}
+
+
+/* =====================================================
+                    CEK STATUS
+===================================================== */
+
+document
+    .getElementById("statusForm")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const kode =
+                document
+                    .getElementById("kodeCek")
+                    .value
+                    .trim();
+
+
+            if (!kode)
+                return;
+
+
+            const checkBtn =
+                document.getElementById(
+                    "checkBtn"
+                );
+
+
+            checkBtn.disabled =
+                true;
+
+
+            checkBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin"></i> Mengecek...';
+
+
+            requestJSONP(
+
+                {
+                    action: "cek",
+                    kode: kode
+                },
+
+
+                function(response) {
+
+                    checkBtn.disabled =
+                        false;
+
+
+                    checkBtn.innerHTML =
+                        '<i class="fa-solid fa-magnifying-glass"></i> Cek Status';
+
+
+                    if (
+                        !response ||
+                        !response.success
+                    ) {
+
+                        alert(
+
+                            response &&
+                            response.message
+
+                                ? response.message
+
+                                : "Pengaduan tidak ditemukan."
+
+                        );
+
+                        return;
+
+                    }
+
+
+                    const data =
+                        response.data ||
+                        {};
+
+
+                    document
+                        .getElementById(
+                            "resultKode"
+                        )
+                        .textContent =
+                        data.kode ||
+                        "-";
+
+
+                    document
+                        .getElementById(
+                            "resultKategori"
+                        )
+                        .textContent =
+                        data.kategori ||
+                        "-";
+
+
+                    document
+                        .getElementById(
+                            "resultJudul"
+                        )
+                        .textContent =
+                        data.judul ||
+                        "-";
+
+
+                    document
+                        .getElementById(
+                            "resultLokasi"
+                        )
+                        .textContent =
+                        data.lokasi ||
+                        "-";
+
+
+                    const statusElement =
+                        document.getElementById(
+                            "resultStatus"
+                        );
+
+
+                    const status =
+                        String(
+                            data.status ||
+                            "baru"
+                        )
+                        .toLowerCase();
+
+
+                    statusElement.innerHTML =
+
+                        '<span class="status-badge status-' +
+
+                        escapeHTML(status) +
+
+                        '">' +
+
+                        escapeHTML(status) +
+
+                        "</span>";
+
+
+                    document
+                        .getElementById(
+                            "resultTanggapan"
+                        )
+                        .textContent =
+                        data.tanggapan ||
+                        "Belum ada tanggapan.";
+
+
+                    document
+                        .getElementById(
+                            "resultTanggal"
+                        )
+                        .textContent =
+                        data.tanggal ||
+                        "-";
+
+
+                    document
+                        .getElementById(
+                            "resultBox"
+                        )
+                        .classList
+                        .add("show");
+
+                },
+
+
+                function() {
+
+                    checkBtn.disabled =
+                        false;
+
+
+                    checkBtn.innerHTML =
+                        '<i class="fa-solid fa-magnifying-glass"></i> Cek Status';
+
+
+                    alert(
+                        "Google Apps Script sedang lambat. Silakan coba cek lagi beberapa saat."
+                    );
+
+                },
+
+                3
+
+            );
+
+        }
+    );
+
+
+/* =====================================================
+                    ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+</body>
+</html>
+
